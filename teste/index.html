@@ -13,7 +13,16 @@
 </head>
 <body>
 
-  <header class="site-header">
+  <div class="page-frame" aria-hidden="true">
+    <span class="corner corner-tl"></span>
+    <span class="corner corner-tr"></span>
+    <span class="corner corner-bl"></span>
+    <span class="corner corner-br"></span>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
 
       <a href="#" class="logo">
@@ -53,10 +62,22 @@
           <li><a href="#" aria-label="YouTube">YT</a></li>
         </ul>
         <a href="#" class="btn btn-primary">Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
 
     </div>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">FAQs</a>
+    <a href="#">Blog</a>
+    <a href="#" class="mobile-menu-cta">Contact</a>
+  </div>
 
   <section class="hero">
     <div class="container hero-inner">
@@ -71,7 +92,7 @@
       </div>
 
       <div class="hero-media">
-        <img src="https://images.unsplash.com/photo-1662104935883-e9dd0619eaba?q=80&amp;w=1000&amp;h=1250&amp;auto=format&amp;fit=crop" alt="Advogada da Holmes Law">
+        <img src="https://images.unsplash.com/photo-1662104935883-e9dd0619eaba?q=80&amp;w=1000&amp;h=1250&amp;auto=format&amp;fit=crop" alt="Advogada da Holmes Law" id="heroImg">
         <div class="seal">
           <span>Est.</span>
           <strong>1999</strong>
@@ -81,11 +102,28 @@
     </div>
   </section>
 
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Personal Injury</span><span class="ticker-dot">&#9670;</span>
+      <span>Estate Planning</span><span class="ticker-dot">&#9670;</span>
+      <span>Wills &amp; Trusts</span><span class="ticker-dot">&#9670;</span>
+      <span>Free Consultation</span><span class="ticker-dot">&#9670;</span>
+      <span>No Win, No Fee</span><span class="ticker-dot">&#9670;</span>
+      <span>Trusted Since 1999</span><span class="ticker-dot">&#9670;</span>
+      <span>Personal Injury</span><span class="ticker-dot">&#9670;</span>
+      <span>Estate Planning</span><span class="ticker-dot">&#9670;</span>
+      <span>Wills &amp; Trusts</span><span class="ticker-dot">&#9670;</span>
+      <span>Free Consultation</span><span class="ticker-dot">&#9670;</span>
+      <span>No Win, No Fee</span><span class="ticker-dot">&#9670;</span>
+      <span>Trusted Since 1999</span><span class="ticker-dot">&#9670;</span>
+    </div>
+  </div>
+
   <section class="about">
     <div class="container">
 
       <div class="about-row">
-        <div class="about-text reveal">
+        <div class="about-text reveal reveal-left">
           <span class="tag-label">Our Approach</span>
           <h2>Trusted by clients since 1999</h2>
           <p>
@@ -93,16 +131,16 @@
           </p>
           <a href="#" class="btn btn-secondary">How We Work</a>
         </div>
-        <div class="about-media reveal reveal-scale reveal-delay-1">
+        <div class="about-media reveal reveal-right">
           <img src="https://images.unsplash.com/photo-1758518727888-ffa196002e59?q=80&amp;w=1200&amp;h=1200&amp;auto=format&amp;fit=crop" alt="Advogada no escritório">
         </div>
       </div>
 
       <div class="about-row">
-        <div class="about-media reveal reveal-scale">
+        <div class="about-media reveal reveal-left">
           <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&amp;w=1200&amp;h=1200&amp;auto=format&amp;fit=crop" alt="Cliente assinando documento">
         </div>
-        <div class="about-text reveal reveal-delay-1">
+        <div class="about-text reveal reveal-right">
           <span class="tag-label">Our Promise</span>
           <h2>Here when it matters most</h2>
           <p>
@@ -368,11 +406,11 @@
 
       <div class="contact-grid">
 
-        <div class="contact-image reveal">
+        <div class="contact-image reveal reveal-left">
           <img src="https://images.unsplash.com/photo-1758691737246-95bf8f09a997?q=80&amp;w=1000&amp;h=1000&amp;auto=format&amp;fit=crop" alt="Consulta com cliente">
         </div>
 
-        <div class="contact-form-box reveal reveal-delay-1">
+        <div class="contact-form-box reveal">
           <form>
             <div class="form-field">
               <label for="contact-name">Full Name</label>
@@ -390,15 +428,26 @@
           </form>
         </div>
 
-        <div class="contact-info reveal reveal-delay-2">
-          <div class="contact-info-block">
-            <h4>Contact</h4>
-            <a href="mailto:hi@holmeslaw.com">hi@holmeslaw.com</a>
-          </div>
+        <div class="contact-info reveal reveal-right">
+          <a href="mailto:hi@holmeslaw.com" class="contact-item">
+            <span class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </span>
+            <span class="contact-item-text">
+              <small>Email</small>
+              <span>hi@holmeslaw.com</span>
+            </span>
+            <svg class="contact-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
 
-          <div class="contact-info-block">
-            <h4>Based in</h4>
-            <p>San Francisco, California</p>
+          <div class="contact-item contact-item-static">
+            <span class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </span>
+            <span class="contact-item-text">
+              <small>Based in</small>
+              <span>San Francisco, California</span>
+            </span>
           </div>
 
           <ul class="contact-social">
@@ -412,6 +461,62 @@
 
     </div>
   </section>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">HL</span>
+          <span class="logo-text">
+            HOLMES LAW
+            <small>PERSONAL INJURY &amp; ESTATE PLANNING</small>
+          </span>
+        </a>
+        <p>
+          A personal injury and estate planning firm built around clear communication, modern technology, and outcomes clients can trust.
+        </p>
+        <ul class="social-links">
+          <li><a href="#" aria-label="Facebook">FB</a></li>
+          <li><a href="#" aria-label="Instagram">IG</a></li>
+          <li><a href="#" aria-label="YouTube">YT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="#">Personal Injury</a></li>
+          <li><a href="#">Estate Planning</a></li>
+          <li><a href="#">Wills &amp; Trusts</a></li>
+          <li><a href="#">Case Results</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="mailto:hi@holmeslaw.com">hi@holmeslaw.com</a></p>
+        <p>San Francisco, California</p>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Holmes Law. All rights reserved.</span>
+      <span>Personal Injury &amp; Estate Planning</span>
+    </div>
+  </footer>
 
   <script>
     (function () {
@@ -444,6 +549,55 @@
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
       targets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    (function () {
+      var progress = document.getElementById('scrollProgress');
+      if (!progress) return;
+
+      function onScroll() {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+        progress.style.width = pct + '%';
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+
+    (function () {
+      var heroImg = document.getElementById('heroImg');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!heroImg || reduceMotion) return;
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY < window.innerHeight) {
+          var shift = window.scrollY * 0.12;
+          heroImg.style.transform = 'translateY(' + shift + 'px) scale(1.05)';
+        }
+      }, { passive: true });
     })();
   </script>
 

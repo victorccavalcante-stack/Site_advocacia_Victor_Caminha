@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Caminha Cavalcante &mdash; Advocacia Empresarial</title>
+  <meta name="description" content="Advocacia empresarial em direito contratual e societário, nas frentes consultiva e contenciosa. Cada cláusula e cada estrutura de governança tratada como alocação de risco.">
+  <meta name="theme-color" content="#0C1C26">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='3' fill='%230E253B'/%3E%3Cpath d='M12 4.5v15M6.5 8h11M6.5 8 4 13a2.5 2.5 0 0 0 5 0L6.5 8ZM17.5 8 15 13a2.5 2.5 0 0 0 5 0L17.5 8ZM8.5 19.5h7' stroke='%23C79A54' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <!-- Rail lateral: assinatura visual + progresso de leitura -->
+  <aside class="rail" aria-hidden="true">
+    <span class="rail-line"><i id="railFill"></i></span>
+    <span class="rail-mark">Direito contratual e societário</span>
+  </aside>
+
+  <header class="site-header" id="siteHeader">
+    <div class="shell header-inner">
+
+      <a href="#main" class="logo" aria-label="Victor Caminha Cavalcante, início">
+        <span class="logo-text">
+          Victor Caminha
+          <small>Advocacia empresarial</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li class="has-dropdown">
+            <a href="#atuacao" aria-haspopup="true">Atuação</a>
+            <ul class="dropdown">
+              <li><a href="#atuacao">Consultivo</a></li>
+              <li><a href="#atuacao">Contencioso</a></li>
+              <li><a href="#servicos">Rol completo</a></li>
+            </ul>
+          </li>
+          <li><a href="#diferencial">Diferencial</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contato" class="btn btn-ghost">Agendar conversa</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="menu-backdrop" id="menuBackdrop" hidden></div>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="btn btn-solid mobile-cta">Agendar conversa</a>
+    <p class="mobile-note">Atendimento consultivo e contencioso, presencial e remoto</p>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="guilloche"></span>
+        <span class="hero-glow"></span>
+      </div>
+
+      <div class="shell hero-inner">
+
+        <div class="hero-copy">
+          <p class="hero-place" data-hero="1">Advocacia empresarial &middot; Direito contratual e societário</p>
+
+          <h1 class="hero-title">
+            <span class="line"><span data-hero="2">Direito empresarial</span></span>
+            <span class="line"><span data-hero="3">lido em custos,</span></span>
+            <span class="line"><span data-hero="4">riscos e resultado.</span></span>
+          </h1>
+
+          <p class="hero-text" data-hero="5">
+            Atuação em direito contratual e societário, nas frentes consultiva e contenciosa.
+            Cada cláusula, cada estrutura de governança e cada disputa tratada como uma
+            alocação de risco.
+          </p>
+
+          <div class="hero-actions" data-hero="6">
+            <a href="#contato" class="btn btn-solid">Agendar conversa</a>
+            <a href="#atuacao" class="btn btn-quiet">Ver áreas de atuação</a>
+          </div>
+
+          <ul class="hero-facts" data-hero="7">
+            <li>Consultivo e contencioso</li>
+            <li>Atendimento presencial e remoto</li>
+          </ul>
+        </div>
+
+        <figure class="hero-plate" data-hero="4">
+          <div class="plate-frame">
+            <img src="img/victor-caminha-retrato.jpg"
+                 alt="Victor Caminha, advogado" id="heroImg" width="512" height="640">
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <svg class="seal-type" viewBox="0 0 120 120">
+              <defs>
+                <path id="sealArc" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0"/>
+              </defs>
+              <text><textPath href="#sealArc" startOffset="0" textLength="262" lengthAdjust="spacing">Direito contratual e societário &middot;</textPath></text>
+            </svg>
+            <span class="seal-core"><svg class="seal-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5.5 7h13M5.5 7 3 12.5a2.75 2.75 0 0 0 5.5 0L5.5 7ZM18.5 7 16 12.5a2.75 2.75 0 0 0 5.5 0L18.5 7ZM8.5 21h7"/></svg></span>
+          </div>
+        </figure>
+
+      </div>
+
+      <div class="hero-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ FAIXA ROLANTE ============ -->
+    <div class="docket" id="docket" aria-hidden="true">
+      <div class="docket-viewport">
+        <div class="docket-track" id="docketTrack">
+          <ul class="docket-group">
+            <li>Contratual</li>
+            <li>Societário</li>
+            <li>Consultivo</li>
+            <li>Contencioso</li>
+            <li>Acordo de sócios</li>
+            <li>Contrato social</li>
+            <li>Due diligence</li>
+            <li>Arbitragem empresarial</li>
+            <li>Governança</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ÁREAS DE ATUAÇÃO ============ -->
+    <section class="practices" id="atuacao">
+      <div class="shell">
+
+        <header class="section-head reveal">
+          <h2>Do desenho à disputa</h2>
+          <p>
+            A atuação se organiza em duas frentes complementares: prevenção, no plano
+            consultivo, e resposta, no plano contencioso.
+          </p>
+        </header>
+
+        <div class="practice-split">
+
+          <article class="practice practice-estate reveal">
+            <!-- SUBSTITUIR: imagem ilustrativa da frente consultiva -->
+            <div class="practice-img">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&amp;w=1200&amp;h=900&amp;auto=format&amp;fit=crop"
+                   alt="" loading="lazy" width="1200" height="900">
+            </div>
+            <div class="practice-body">
+              <h3>Consultivo</h3>
+              <p>
+                Reduzir custo de transação antes do conflito existir. Contratos e estruturas
+                societárias redigidos com alocação de risco entre as partes.
+              </p>
+              <a href="#servicos" class="link-arrow">Ver rol completo</a>
+            </div>
+          </article>
+
+          <article class="practice practice-injury reveal">
+            <!-- SUBSTITUIR: imagem ilustrativa da frente contenciosa -->
+            <div class="practice-img">
+              <img src="https://images.unsplash.com/photo-1750365501430-395251fe4b7e?q=80&amp;w=1200&amp;h=900&amp;auto=format&amp;fit=crop"
+                   alt="" loading="lazy" width="1200" height="900">
+            </div>
+            <div class="practice-body">
+              <h3>Contencioso</h3>
+              <p>
+                Quando a prevenção não bastou. Condução da disputa contratual ou societária
+                em juízo e em arbitragem, com leitura de custo e de probabilidade.
+              </p>
+              <a href="#servicos" class="link-arrow">Ver rol completo</a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="about" id="sobre">
+      <div class="shell">
+
+        <div class="about-row reveal">
+          <div class="about-text">
+            <p class="marginalia">Sobre</p>
+            <h2>Advocacia como engenharia de risco empresarial</h2>
+            <p>
+              Atuação em direito contratual e societário com prática construída sobre um
+              princípio simples: toda decisão jurídica empresarial tem um custo econômico,
+              mesmo quando esse custo não aparece na petição ou no contrato. Cada cláusula e
+              cada estrutura de governança deve ser pensada como alocação de risco.
+            </p>
+            <a href="#contato" class="link-arrow">Falar sobre o seu caso</a>
+          </div>
+          <!-- SUBSTITUIR: mesma foto profissional do topo, ou uma segunda em ambiente de trabalho -->
+          <figure class="about-media">
+            <img src="https://images.unsplash.com/photo-1758518727888-ffa196002e59?q=80&amp;w=1200&amp;h=1200&amp;auto=format&amp;fit=crop"
+                 alt="Victor Caminha Cavalcante em ambiente de trabalho" loading="lazy" width="1200" height="1200">
+          </figure>
+        </div>
+
+        <div class="about-row about-row-flip reveal">
+          <!-- SUBSTITUIR: imagem de apoio, ambiente de trabalho ou detalhe de escritorio -->
+          <figure class="about-media">
+            <img src="https://images.unsplash.com/photo-1758691737246-95bf8f09a997?q=80&amp;w=1200&amp;h=1200&amp;auto=format&amp;fit=crop"
+                 alt="Documentos societários em análise" loading="lazy" width="1200" height="1200">
+          </figure>
+          <div class="about-text">
+            <p class="marginalia">Premissa de trabalho</p>
+            <h2>A prevenção jurídica é uma decisão econômica</h2>
+            <p>
+              Um contrato malfeito custa mais no litígio do que custaria bem redigido. Uma
+              sociedade mal estruturada custa mais na disputa entre sócios do que custaria bem
+              planejada.
+            </p>
+            <a href="#servicos" class="link-arrow">Ver rol de serviços</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAL ============ -->
+    <section class="reasons" id="diferencial">
+      <div class="reasons-bg" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1758518730384-be3d205838e8?q=80&amp;w=1920&amp;h=1080&amp;auto=format&amp;fit=crop"
+             alt="" loading="lazy" width="1920" height="1080">
+      </div>
+
+      <div class="shell reasons-inner">
+        <header class="section-head section-head-light reveal">
+          <h2>Direito lido pela lente da economia</h2>
+          <p>
+            Economia é método de decisão na advocacia empresarial. Três princípios orientam
+            cada peça, contrato e parecer.
+          </p>
+        </header>
+
+        <ul class="reason-list">
+          <li class="reason reveal">
+            <h3>Previsibilidade contratual</h3>
+            <p>
+              Cláusulas redigidas para reduzir a chance de litígio futuro, com alocação
+              de risco entre as partes.
+            </p>
+          </li>
+          <li class="reason reveal">
+            <h3>Custo de transação</h3>
+            <p>
+              Cada estrutura societária ou contratual é avaliada também pelo custo de operá-la
+              e de eventualmente desfazê-la.
+            </p>
+          </li>
+          <li class="reason reveal">
+            <h3>Governança como ativo</h3>
+            <p>
+              Sócios e acionistas com regras claras de saída, deliberação e responsabilidade
+              evitam disputas que custam mais do que a governança que as preveniria.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS EM DESTAQUE ============ -->
+    <section class="cases">
+      <div class="shell">
+
+        <header class="section-head cases-head reveal">
+          <h2>Serviços em destaque</h2>
+          <p>Um recorte das frentes mais procuradas. O rol completo vem logo abaixo.</p>
+        </header>
+
+        <div class="carousel" id="carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+                </span>
+                <h3>Contratos empresariais</h3>
+                <p>Minuta e revisão de contratos, com alocação de risco entre as partes e cláusulas pensadas para reduzir litígio futuro.</p>
+              </article>
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V6a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v15M14 21V10h4a1 1 0 0 1 1 1v10"/><path d="M8 9h3M8 13h3M8 17h3"/></svg>
+                </span>
+                <h3>Contrato e estatuto social</h3>
+                <p>Elaboração e alteração de contrato social e elaboração de estatuto social, do enquadramento inicial às reestruturações.</p>
+              </article>
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.8"/><circle cx="16" cy="9.5" r="2.3"/><path d="M3.5 19c0-2.8 2.2-4.6 5-4.6s5 1.8 5 4.6M14.5 19c0-2.3 1.5-3.8 3.2-3.8s3.3 1.5 3.3 3.8"/></svg>
+                </span>
+                <h3>Acordo de sócios e acionistas</h3>
+                <p>Regras de deliberação, saída e responsabilidade definidas antes do conflito, quando ainda são baratas de negociar.</p>
+              </article>
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>
+                </span>
+                <h3>Participação societária</h3>
+                <p>Contrato de compra e venda de participação e estruturação jurídica de empresas e operações societárias.</p>
+              </article>
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3.2v5.4c0 4.6-3.1 8.2-7.5 9.4-4.4-1.2-7.5-4.8-7.5-9.4V6.2L12 3Z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg>
+                </span>
+                <h3>Due diligence empresarial</h3>
+                <p>Levantamento de passivos e riscos jurídicos antes de fechar a operação, para que o preço reflita o que está sendo comprado.</p>
+              </article>
+
+              <article class="case">
+                <span class="case-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5.5 7h13M5.5 7 3 12.5a2.75 2.75 0 0 0 5.5 0L5.5 7ZM18.5 7 16 12.5a2.75 2.75 0 0 0 5.5 0L18.5 7ZM8.5 21h7"/></svg>
+                </span>
+                <h3>Contencioso societário</h3>
+                <p>Dissolução parcial ou total, responsabilidade de sócio ou administrador e desconsideração da personalidade jurídica.</p>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Serviços"></div>
+            <div class="carousel-arrows">
+              <button type="button" class="c-arrow" id="prevBtn" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+              </button>
+              <button type="button" class="c-arrow" id="nextBtn" aria-label="Próximo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cases-cta reveal">
+          <a href="#contato" class="btn btn-solid">Agendar conversa</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ ROL COMPLETO ============ -->
+    <section class="faq" id="servicos">
+      <div class="shell faq-inner">
+
+        <header class="faq-head reveal">
+          <div class="faq-sticky">
+            <h2>Rol completo de serviços</h2>
+            <a href="#contato" class="link-arrow">Falar sobre o seu caso</a>
+          </div>
+        </header>
+
+        <div class="accordion" id="accordion">
+
+          <div class="acc-item">
+            <h3>
+              <button type="button" class="acc-trigger" aria-expanded="false">
+                <span>Consultivo &mdash; reduzir custo de transação antes do conflito existir</span>
+                <i aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="acc-panel" hidden>
+              <ol class="svc-list">
+                <li>Minuta e revisão de contratos empresariais</li>
+                <li>Elaboração e alteração de contrato social</li>
+                <li>Elaboração de estatuto social</li>
+                <li>Acordo de sócios e acionistas</li>
+                <li>Contrato de compra e venda de participação societária</li>
+                <li>Estruturação jurídica de empresas e operações societárias</li>
+                <li>Due diligence empresarial</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <h3>
+              <button type="button" class="acc-trigger" aria-expanded="false">
+                <span>Contencioso &mdash; quando a prevenção não bastou</span>
+                <i aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="acc-panel" hidden>
+              <ol class="svc-list">
+                <li>Execução de título extrajudicial</li>
+                <li>Ação monitória</li>
+                <li>Ação de dissolução parcial ou total de sociedade</li>
+                <li>Ação de responsabilidade civil de sócio ou administrador</li>
+                <li>Desconsideração da personalidade jurídica</li>
+                <li>Arbitragem em matéria empresarial</li>
+                <li>Recursos nos tribunais</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <h3>
+              <button type="button" class="acc-trigger" aria-expanded="false">
+                <span>Como funciona o atendimento</span>
+                <i aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="acc-panel" hidden>
+              <p>
+                Atendimento consultivo e contencioso para empresas e sócios, presencial e
+                remoto. Os honorários são definidos por escrito antes do início dos trabalhos.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="contact" id="contato">
+      <div class="shell">
+
+        <div class="contact-lead">
+
+          <!-- SUBSTITUIR: as duas imagens abaixo. A da esquerda pede retrato
+               vertical em 3:4,9; a da direita, 3:4,7. -->
+          <div class="lead-media reveal">
+            <!-- Painel de marca, nao foto: com um unico retrato disponivel, dois
+                 rostos lado a lado ficariam repetitivos. Para usar uma segunda
+                 foto aqui, troque o span abaixo por:
+                 <img src="img/SUA-FOTO.jpg" alt="" loading="lazy"> -->
+            <figure class="lead-arch">
+              <span class="arch-plate"></span>
+            </figure>
+
+            <figure class="lead-plate">
+              <img src="img/victor-caminha-contato.jpg"
+                   alt="Victor Caminha, advogado" loading="lazy" width="409" height="640">
+            </figure>
+
+            <span class="lead-seal" aria-hidden="true">
+              <svg class="seal-ring" viewBox="0 0 120 120">
+                <defs>
+                  <path id="leadSealArc" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/>
+                </defs>
+                <text><textPath href="#leadSealArc" startOffset="0" textLength="268" lengthAdjust="spacing">Consultivo e contencioso &middot; Empresas e sócios &middot;</textPath></text>
+              </svg>
+              <svg class="seal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5.5 7h13M5.5 7 3 12.5a2.75 2.75 0 0 0 5.5 0L5.5 7ZM18.5 7 16 12.5a2.75 2.75 0 0 0 5.5 0L18.5 7ZM8.5 21h7"/></svg>
+            </span>
+          </div>
+
+          <div class="lead-copy reveal">
+            <p class="marginalia">Contato</p>
+            <h2>Vamos conversar sobre o seu contrato ou a sua sociedade</h2>
+            <p class="lead-text">
+              Atendimento consultivo e contencioso para empresas e sócios. Descreva a
+              situação e o retorno é feito para agendar a conversa.
+            </p>
+
+            <ul class="lead-list">
+              <li>
+                <svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.4 4 4L18 8"/></svg>
+                <span>Atendimento presencial e remoto</span>
+              </li>
+              <li>
+                <svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.4 4 4L18 8"/></svg>
+                <span>Frentes consultiva e contenciosa</span>
+              </li>
+              <li>
+                <svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.4 4 4L18 8"/></svg>
+                <span>Direito contratual e societário</span>
+              </li>
+            </ul>
+
+            <a href="#form-contato" class="btn btn-solid">Agendar conversa</a>
+          </div>
+
+        </div>
+
+        <div class="contact-form-band" id="form-contato">
+          <div class="contact-grid">
+
+            <div class="contact-panel reveal">
+              <form class="contact-form" id="contactForm" novalidate>
+
+                <div class="field-row">
+                  <div class="field">
+                    <input type="text" id="f-name" name="nome" placeholder=" " required autocomplete="name">
+                    <label for="f-name">Nome</label>
+                    <small class="field-error" data-for="f-name"></small>
+                  </div>
+                  <div class="field">
+                    <input type="text" id="f-company" name="empresa" placeholder=" " autocomplete="organization">
+                    <label for="f-company">Empresa <span>(se houver)</span></label>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <input type="email" id="f-email" name="email" placeholder=" " required autocomplete="email">
+                    <label for="f-email">E-mail</label>
+                    <small class="field-error" data-for="f-email"></small>
+                  </div>
+                  <div class="field">
+                    <input type="tel" id="f-phone" name="telefone" placeholder=" " autocomplete="tel">
+                    <label for="f-phone">Telefone <span>(opcional)</span></label>
+                  </div>
+                </div>
+
+                <div class="field field-select">
+                  <select id="f-matter" name="assunto" required>
+                    <option value="" selected disabled></option>
+                    <option>Contrato empresarial</option>
+                    <option>Direito societário</option>
+                    <option>Contencioso</option>
+                    <option>Outro</option>
+                  </select>
+                  <label for="f-matter">Assunto</label>
+                  <small class="field-error" data-for="f-matter"></small>
+                </div>
+
+                <div class="field">
+                  <textarea id="f-message" name="mensagem" rows="4" placeholder=" " required></textarea>
+                  <label for="f-message">Mensagem</label>
+                  <small class="field-error" data-for="f-message"></small>
+                </div>
+
+                <button type="submit" class="btn btn-solid btn-block">Enviar mensagem</button>
+                <p class="form-note">
+                  Formulário ilustrativo &mdash; conectar a um serviço de envio na implementação
+                  final. O envio desta mensagem não cria relação advogado&ndash;cliente; evite
+                  incluir informações sigilosas.
+                </p>
+
+                <p class="form-success" id="formSuccess" role="status" hidden>
+                  Mensagem enviada. O retorno será feito pelo e-mail informado.
+                </p>
+              </form>
+            </div>
+
+            <aside class="contact-side reveal">
+              <!-- SUBSTITUIR: apenas o e-mail continua pendente -->
+              <a href="mailto:[preencher]@caminhaadvocacia.com.br" class="contact-item">
+                <span class="ci-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                </span>
+                <span class="ci-text"><small>E-mail</small><span>[preencher]@caminhaadvocacia.com.br</span></span>
+                <svg class="ci-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+
+              <a href="https://wa.me/5586988753468" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <span class="ci-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/></svg>
+                </span>
+                <span class="ci-text"><small>Telefone &middot; WhatsApp</small><span>(86) 98875&ndash;3468</span></span>
+                <svg class="ci-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+
+              <div class="contact-item is-static">
+                <span class="ci-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </span>
+                <span class="ci-text"><small>Atendimento</small><span>Presencial e remoto</span></span>
+              </div>
+
+              <div class="contact-hours">
+                <p>Consultivo e contencioso</p>
+                <p>Empresas e sócios, mediante agendamento</p>
+              </div>
+            </aside>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-top">
+
+      <div class="footer-brand">
+        <a href="#main" class="logo" aria-label="Victor Caminha Cavalcante, início">
+          <span class="logo-text">
+            Victor Caminha
+            <small>Advocacia empresarial</small>
+          </span>
+        </a>
+        <p>
+          Direito contratual e societário, nas frentes consultiva e contenciosa.
+          Prevenção jurídica tratada como decisão econômica.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li><a href="#diferencial">Diferencial</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atuação</h4>
+        <ul>
+          <li><a href="#atuacao">Consultivo</a></li>
+          <li><a href="#atuacao">Contencioso</a></li>
+          <li><a href="#servicos">Direito contratual</a></li>
+          <li><a href="#servicos">Direito societário</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:[preencher]@caminhaadvocacia.com.br">[preencher]@caminhaadvocacia.com.br</a></li>
+          <li><a href="tel:+5586988753468">(86) 98875&ndash;3468</a></li>
+          <li>Presencial e remoto</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="shell footer-bottom">
+      <span>&copy; 2026 Victor Caminha Cavalcante &mdash; Advocacia empresarial</span>
+      <span>OAB/PI n&ordm; 22.551 &middot; Conteúdo meramente informativo, sem oferta de serviços nem promessa de resultado.</span>
+    </div>
+  </footer>
+
+  <div class="fabs">
+    <a class="wa-fab" id="waFab"
+       href="https://wa.me/5586988753468?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20um%20contrato%20ou%20uma%20quest%C3%A3o%20societ%C3%A1ria."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Conversar pelo WhatsApp">
+      <span class="wa-pulse" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.03 0 1.2.87 2.35.99 2.51.12.17 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.18-.47-.3Z"/>
+      </svg>
+      <span class="wa-label">Falar no WhatsApp</span>
+    </a>
+
+    <button class="to-top" id="toTop" aria-label="Voltar ao topo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
