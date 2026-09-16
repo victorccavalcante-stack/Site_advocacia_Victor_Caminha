@@ -101,14 +101,15 @@
       return;
     }
 
-    // escalona irmãos dentro de um mesmo grupo
-    var groups = {};
+    // Escalona irmaos dentro de um mesmo grupo. Usa Map porque um no de DOM
+    // como chave de objeto vira a string "[object HTMLDivElement]" — todos os
+    // elementos cairiam no mesmo grupo e o escalonamento nao funcionaria.
+    var groups = new Map();
     items.forEach(function (el) {
       var key = el.parentNode;
-      groups[key] = groups[key] || [];
-      var list = groups[key];
-      el.style.setProperty('--d', Math.min(list.length, 5) * 0.08 + 's');
-      list.push(el);
+      var n = groups.get(key) || 0;
+      el.style.setProperty('--d', Math.min(n, 6) * 0.1 + 's');
+      groups.set(key, n + 1);
     });
 
     var io = new IntersectionObserver(function (entries) {
@@ -117,7 +118,7 @@
         entry.target.classList.add('is-in');
         io.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     items.forEach(function (el) { io.observe(el); });
   })();
@@ -178,7 +179,7 @@
     var group = $('.docket-group', track);
     if (!group) return;
 
-    var SPEED = 42; // pixels por segundo — mude aqui para acelerar ou desacelerar
+    var SPEED = 58; // pixels por segundo — mude aqui para acelerar ou desacelerar
 
     function build() {
       // limpa clones de uma passada anterior
@@ -500,7 +501,12 @@
       return setError(field, '');
     }
 
+    function servico(campo) {                     // _subject, _template, _captcha, _honey
+      return campo.type === 'hidden' || campo.name.charAt(0) === '_';
+    }
+
     $$('input, select, textarea', form).forEach(function (field) {
+      if (servico(field)) return;
       field.addEventListener('blur', function () { check(field); });
       field.addEventListener('input', function () {
         var wrap = field.closest('.field');
@@ -527,11 +533,153 @@
         return;
       }
 
-      // Sem back-end: troque este bloco pelo envio real (fetch, Formspree, etc.)
-      if (success) success.hidden = false;
-      form.reset();
-      $$('.field', form).forEach(function (w) { w.classList.remove('has-error'); });
-      window.setTimeout(function () { if (success) success.hidden = true; }, 7000);
+      enviar();
+    });
+
+    /* ------------------------------------------------------------------
+       Envio pelo FormSubmit.
+       O endereco de destino vem do atributo action do <form> — um unico
+       lugar para trocar. O endpoint AJAX e derivado dele, o que mantem o
+       visitante na pagina. Se o fetch falhar, o formulario e submetido do
+       jeito tradicional, usando o proprio action.
+       ------------------------------------------------------------------ */
+
+    function endpointAjax() {
+      var acao = form.getAttribute('action') || '';
+      return acao.indexOf('formsubmit.co/') > -1
+        ? acao.replace('formsubmit.co/', 'formsubmit.co/ajax/')
+        : '';
+    }
+
+    function aviso(texto, erro) {
+      if (!success) return;
+      success.textContent = texto;
+      success.classList.toggle('is-error', !!erro);
+      success.hidden = false;
+      window.clearTimeout(aviso.t);
+      aviso.t = window.setTimeout(function () { success.hidden = true; }, 10000);
+    }
+
+    function enviar() {
+      var url = endpointAjax();
+      if (!url || !window.fetch) { form.submit(); return; }   // sem AJAX: envio tradicional
+
+      var botao = $('button[type="submit"]', form);
+      var rotulo = botao ? botao.textContent : '';
+      if (botao) { botao.disabled = true; botao.textContent = 'Enviando…'; }
+
+      var dados = {};
+      $$('input, select, textarea', form).forEach(function (campo) {
+        if (campo.name) dados[campo.name] = campo.value;
+      });
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(dados)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          var ok = j && (j.success === true || j.success === 'true');
+          if (ok) {
+            aviso('Mensagem enviada. O retorno será feito pelo e-mail informado.', false);
+            form.reset();
+            $$('.field', form).forEach(function (w) { w.classList.remove('has-error'); });
+          } else {
+            // primeira mensagem de todas: o FormSubmit pede confirmação do e-mail
+            aviso((j && j.message) || 'Não foi possível enviar agora. Tente pelo WhatsApp.', true);
+          }
+        })
+        .catch(function () {
+          aviso('Falha de conexão ao enviar. Tente pelo WhatsApp ou escreva direto para o e-mail do rodapé.', true);
+        })
+        .then(function () {
+          if (botao) { botao.disabled = false; botao.textContent = rotulo; }
+        });
+    }
+  })();
+
+  /* ---------- Link de e-mail com rede de segurança ---------- */
+
+  (function () {
+    var link = $('#linkEmail');
+    if (!link) return;
+
+    var endereco = link.getAttribute('data-email') || '';
+    var rotulo   = $('.ci-text small', link);
+    if (!rotulo) return;
+
+    var textoOriginal = rotulo.textContent;
+    var modoGmail = false;
+    var t1, t2;
+
+    // Gmail na web: funciona para quem nao tem aplicativo de e-mail instalado
+    function urlGmail() {
+      var m = link.getAttribute('href').split('?');
+      return 'https://mail.google.com/mail/?view=cm&fs=1&to=' +
+             encodeURIComponent(endereco) + '&' + (m[1] || '');
+    }
+
+    function mostrar(texto, destaque) {
+      rotulo.textContent = texto;
+      link.classList.toggle('is-copied', !!destaque);
+    }
+
+    function restaurar() {
+      mostrar(textoOriginal, false);
+      modoGmail = false;
+    }
+
+    // copia sem depender da API moderna, que exige contexto seguro (https)
+    function copiar(texto) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(texto).then(function () { return true; },
+                                                          function () { return legado(texto); });
+      }
+      return Promise.resolve(legado(texto));
+    }
+
+    function legado(texto) {
+      try {
+        var campo = document.createElement('textarea');
+        campo.value = texto;
+        campo.setAttribute('readonly', '');
+        campo.style.position = 'fixed';
+        campo.style.left = '-9999px';
+        document.body.appendChild(campo);
+        campo.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(campo);
+        return ok;
+      } catch (e) { return false; }
+    }
+
+    link.addEventListener('click', function (e) {
+      // segundo clique, depois do aviso: abre direto o Gmail na web
+      if (modoGmail) {
+        e.preventDefault();
+        window.open(urlGmail(), '_blank', 'noopener');
+        restaurar();
+        return;
+      }
+
+      window.clearTimeout(t1); window.clearTimeout(t2);
+
+      copiar(endereco).then(function (copiou) {
+        mostrar(copiou ? 'Endereço copiado — abrindo seu e-mail…' : 'Abrindo seu e-mail…', true);
+      });
+
+      /* Se o sistema nao tem aplicativo de e-mail, o mailto nao faz nada e a
+         pagina continua em foco. Nesse caso, oferece o Gmail na web. */
+      t1 = window.setTimeout(function () {
+        if (document.hasFocus()) {
+          modoGmail = true;
+          mostrar('Não abriu? Clique para usar o Gmail', true);
+          t2 = window.setTimeout(restaurar, 12000);
+        } else {
+          t2 = window.setTimeout(restaurar, 2500);
+        }
+      }, 1500);
     });
   })();
 
@@ -568,7 +716,7 @@
     function move() {
       var y = window.scrollY || window.pageYOffset;
       if (y < window.innerHeight * 1.2) {
-        img.style.transform = 'translate3d(0,' + (y * 0.06) + 'px,0) scale(1.02)';
+        img.style.transform = 'translate3d(0,' + (y * 0.13) + 'px,0) scale(1.05)';
       }
       ticking = false;
     }
