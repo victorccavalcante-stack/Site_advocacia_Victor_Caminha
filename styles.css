@@ -597,3 +597,69 @@ a { color: inherit; text-decoration: none; }
   .footer__inner { padding-right: var(--gutter); padding-bottom: 5.5rem; }
   .wa-float { width: 3.25rem; height: 3.25rem; }
 }
+
+/* ---------- Aviso de cookies e página de privacidade ---------- */
+
+.cookie-bar {
+  position: fixed; left: clamp(1rem, 2.5vw, 1.75rem); bottom: clamp(1rem, 2.5vw, 1.75rem); z-index: 60;
+  max-width: 34rem; padding: 1.25rem 1.4rem;
+  background: var(--navy-950); color: var(--cloud);
+  border: 1px solid var(--navy-line); border-top: 2px solid var(--gold);
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, .6);
+  font-size: .975rem; line-height: 1.5;
+}
+.cookie-bar[hidden] { display: none; }
+.cookie-bar p { margin: 0 0 1rem; }
+.cookie-bar a { color: var(--gold-light); text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.cookie-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.ck-btn {
+  font: 600 .975rem/1 var(--serif);
+  padding: .8rem 1.4rem; border-radius: 2px; cursor: pointer;
+  background: transparent; color: var(--cloud); border: 1px solid var(--mist);
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.ck-btn:hover { border-color: #FFFFFF; color: #FFFFFF; }
+.ck-btn-primary { background: var(--gold); color: var(--navy-900); border-color: var(--gold); }
+.ck-btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--navy-900); }
+.ck-link {
+  font: inherit; padding: 0; background: none; border: 0; cursor: pointer; color: inherit;
+  text-decoration: underline; text-decoration-color: rgba(201, 165, 112, .5);
+  text-underline-offset: .2em; text-decoration-thickness: 1px;
+}
+.ck-link:hover { color: var(--gold-light); text-decoration-color: currentColor; }
+
+@media (max-width: 760px) {
+  .cookie-bar { left: .75rem; right: .75rem; bottom: .75rem; max-width: none; }
+  .ck-btn { flex: 1 1 8rem; }
+}
+
+/* Página de privacidade */
+.legal-top { background: var(--navy-900); color: #FFFFFF; border-bottom: 1px solid rgba(201, 165, 112, .28); }
+.legal-wrap { max-width: 52rem; margin: 0 auto; padding-inline: var(--gutter); }
+.legal-top .legal-wrap {
+  max-width: var(--measure);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-block: 1.25rem;
+}
+.legal-top .brand__name { font-size: 1.45rem; }
+.legal-back { color: var(--cloud); border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color .2s; }
+.legal-back:hover { color: #FFFFFF; }
+
+.legal { background: var(--paper); color: var(--ink); padding-block: clamp(3rem, 6vw, 5rem); }
+.legal h1 { font-size: clamp(2.2rem, 1.4rem + 2.4vw, 3.3rem); line-height: 1.08; font-weight: 600; letter-spacing: -.012em; }
+.legal-date { margin-top: .75rem; color: var(--slate); font-style: italic; }
+.legal h2 { margin-top: 2.5rem; margin-bottom: .6rem; font-size: 1.55rem; line-height: 1.2; font-weight: 600; }
+.legal p, .legal li { max-width: 68ch; }
+.legal p { margin-top: .8rem; }
+.legal ul { margin: .8rem 0 0; padding-left: 1.2rem; list-style: disc; }
+.legal li { margin-top: .4rem; }
+.legal a { color: var(--gold-ink); text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.legal a:hover { color: var(--ink); }
+.legal code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; background: rgba(14, 40, 65, .07); padding: .1em .35em; border-radius: 2px; }
+.legal-scroll { overflow-x: auto; margin-top: 1rem; }
+.legal-table { width: 100%; border-collapse: collapse; font-size: .975rem; line-height: 1.45; min-width: 34rem; }
+.legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: .7rem .8rem; border-bottom: 1px solid var(--rule); }
+.legal-table th { font-weight: 600; background: rgba(14, 40, 65, .06); }
+
+.legal-foot { background: var(--navy-950); color: var(--mist); font-size: .9375rem; }
+.legal-foot .legal-wrap { max-width: var(--measure); padding-block: 1.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }

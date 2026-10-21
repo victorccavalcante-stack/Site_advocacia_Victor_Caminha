@@ -109,6 +109,7 @@
 
     const win = window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
     if (win) win.opener = null;
+    if (win && window.vcTrack) window.vcTrack('generate_lead', { method: 'formulario', link_location: 'contato' });
     status.textContent = win
       ? 'Abrimos o WhatsApp com a sua mensagem. É só confirmar o envio por lá.'
       : 'Não foi possível abrir o WhatsApp. Use o link ao lado ou escreva para o e-mail.';
