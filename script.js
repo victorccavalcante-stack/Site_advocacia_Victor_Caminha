@@ -744,7 +744,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';          // <-- TROCAR pelo seu ID do Google Analytics
+  var GA_ID = 'G-4P7YBCW884';          // <-- TROCAR pelo seu ID do Google Analytics
   var KEY   = 'vc_cookie_consent';     // guarda a escolha do visitante
   var loaded = false;
   var bar = null;
