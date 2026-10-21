@@ -96,6 +96,22 @@ a { color: inherit; text-decoration: none; }
 }
 .masthead.is-solid .masthead__inner { padding-block: .85rem; }
 
+/* Contact strip above the bar; folds away once the page scrolls */
+.topbar {
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  max-height: 3rem; overflow: hidden;
+  transition: max-height .4s var(--ease-out), opacity .3s, border-color .3s;
+}
+.topbar__inner {
+  max-width: var(--measure); margin: 0 auto; padding: .45rem var(--gutter);
+  display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .3rem 2rem;
+  font-size: 1rem; line-height: 1.4; color: var(--cloud);
+}
+.topbar a { display: inline-flex; align-items: center; gap: .5rem; transition: color .2s; }
+.topbar a:hover { color: #FFFFFF; }
+.topbar svg { color: var(--gold); flex-shrink: 0; }
+.masthead.is-scrolled .topbar { max-height: 0; opacity: 0; border-bottom-color: transparent; }
+
 .brand { display: flex; flex-direction: column; gap: .2rem; flex-shrink: 0; }
 .brand__name { font-size: 1.75rem; line-height: 1; font-weight: 600; letter-spacing: -.005em; }
 .brand__tag {
@@ -237,11 +253,27 @@ a { color: inherit; text-decoration: none; }
 }
 .plate--hero .button { margin-top: .5rem; }
 .opener__caption {
-  position: absolute; right: var(--gutter); bottom: 2.5rem;
+  position: absolute; right: calc(var(--gutter) + 5rem); bottom: 2.5rem;
   display: flex; align-items: center; gap: .9rem;
   font-size: 1.0625rem; font-variant-caps: all-small-caps; letter-spacing: .16em; color: var(--cloud);
 }
 .opener__caption::before { content: ""; width: 2.5rem; height: 1px; background: var(--gold); }
+
+/* Portrait in the opener: framed, with the offset gold frame */
+.hero-portrait {
+  position: absolute; z-index: 1;
+  right: calc(var(--gutter) + 1.25rem); top: clamp(9rem, 19vh, 12rem);
+  width: clamp(230px, 20vw, 310px); aspect-ratio: 4 / 5;
+}
+.hero-portrait::before {
+  content: ""; position: absolute; inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+  border: 1px solid var(--gold); pointer-events: none;
+}
+.hero-portrait img {
+  position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .7);
+}
+.js [data-reveal] .hero-portrait img { transform: none; }
 
 /* ---------- Quando me procurar ---------- */
 
@@ -332,11 +364,20 @@ a { color: inherit; text-decoration: none; }
 .about {
   display: grid; grid-template-columns: 5fr 7fr; background: #FFFFFF;
 }
+/* Smaller framed portrait, centred in the left column */
 .about__photo {
-  position: sticky; top: 0; align-self: start;
-  height: 100svh; min-height: 560px; overflow: hidden; background: var(--navy-900);
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: var(--section-y) var(--gutter);
 }
-.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.85); }
+.about__frame {
+  position: sticky; top: 7rem; display: block;
+  width: min(100%, 300px); aspect-ratio: 4 / 5; margin: 0 1.25rem 1.25rem 0;
+}
+.about__frame::before {
+  content: ""; position: absolute; inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+  border: 1px solid var(--gold-deep); pointer-events: none;
+}
+.about__frame img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
 .about__text {
   padding: var(--section-y) var(--gutter);
   display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.6rem clamp(1.5rem, 3vw, 3rem);
@@ -424,7 +465,20 @@ a { color: inherit; text-decoration: none; }
   padding: 2rem var(--gutter);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem;
   font-size: .9375rem; line-height: 1.5;
+  padding-right: calc(var(--gutter) + 4.5rem);
 }
+
+/* WhatsApp, always at hand */
+.wa-float {
+  position: fixed; right: clamp(1rem, 2.5vw, 1.75rem); bottom: clamp(1rem, 2.5vw, 1.75rem); z-index: 45;
+  width: 3.5rem; height: 3.5rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #25D366; color: #FFFFFF;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .45), 0 0 0 4px rgba(255, 255, 255, .9);
+  transition: transform .3s var(--ease-out), box-shadow .3s;
+}
+.wa-float:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 14px 30px -8px rgba(0, 0, 0, .5), 0 0 0 4px #FFFFFF; }
+.wa-float:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
 
 /* ---------- Motion: chapter openers settle once ---------- */
 
@@ -460,7 +514,14 @@ a { color: inherit; text-decoration: none; }
   .contact { grid-template-columns: 1fr; }
   .about__text { grid-template-columns: minmax(0, 1fr); }
   .about__text > * { grid-column: 1; }
-  .plate--hero { width: min(78%, 860px); }
+
+  /* Opener stacks: photo band with the framed portrait, plate below */
+  .opener { display: block; min-height: 0; max-height: none; }
+  .opener__photo { position: relative; height: clamp(360px, 52svh, 560px); }
+  .hero-portrait { top: 9rem; right: calc(var(--gutter) + .75rem); width: clamp(150px, 30vw, 240px); }
+  .hero-portrait::before { inset: .75rem -.75rem -.75rem .75rem; }
+  .plate--hero { width: auto; margin: -3.5rem clamp(1rem, 8vw, 6rem) 0 0; }
+  .opener__caption { position: static; padding: 0 var(--gutter) 2.75rem; }
 }
 
 @media (max-width: 920px) {
@@ -487,7 +548,8 @@ a { color: inherit; text-decoration: none; }
   .spread { grid-template-columns: 1fr; }
   .services, .principles { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; }
-  .about__photo { position: relative; height: min(72svh, 640px); min-height: 0; }
+  .about__photo { justify-content: flex-start; padding-bottom: 0; }
+  .about__frame { position: relative; top: 0; width: min(100%, 260px); }
 }
 
 @media (max-width: 760px) {
@@ -495,8 +557,9 @@ a { color: inherit; text-decoration: none; }
   .masthead__inner { padding-block: 1.1rem; }
   .brand__name { font-size: 1.45rem; }
 
-  .opener { display: block; min-height: 0; max-height: none; }
-  .opener__photo { position: relative; height: 40svh; min-height: 260px; }
+  .topbar__inner { justify-content: space-between; gap: .25rem 1rem; font-size: .875rem; }
+  .opener__photo { height: 46svh; min-height: 300px; }
+  .hero-portrait { top: 7rem; right: 1.75rem; width: 38vw; max-width: 170px; }
   .plate--hero {
     width: auto; margin: -3.5rem 1rem 0 0;
     padding: 1.75rem 1.25rem 2.25rem 1rem;
@@ -506,7 +569,7 @@ a { color: inherit; text-decoration: none; }
   .plate--hero .lead { font-size: 1.1rem; line-height: 1.5; }
   .plate--hero .button { margin-top: .25rem; }
   .plate--hero::before { top: -.75rem; right: -.75rem; width: 3.5rem; height: 3.5rem; }
-  .opener__caption { position: static; padding: 0 1rem 2.75rem; letter-spacing: .1em; font-size: 1rem; }
+  .opener__caption { position: static; padding: 0 4.5rem 2.75rem 1rem; letter-spacing: .1em; font-size: 1rem; }
 
   .spread__half { display: block; min-height: 0; padding: 0; }
   .spread__photo { position: relative; aspect-ratio: 4 / 3; }
@@ -522,4 +585,9 @@ a { color: inherit; text-decoration: none; }
   .cases li::before { font-size: 1.4rem; color: var(--gold-ink); }
   .button { width: 100%; justify-content: center; }
   .channels a { font-size: 1.05rem; }
+}
+
+@media (max-width: 760px) {
+  .footer__inner { padding-right: var(--gutter); padding-bottom: 5.5rem; }
+  .wa-float { width: 3.25rem; height: 3.25rem; }
 }

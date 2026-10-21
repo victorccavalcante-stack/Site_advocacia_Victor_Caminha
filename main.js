@@ -5,7 +5,11 @@
   const navLinks = [...document.querySelectorAll('.nav__list a')];
 
   /* Masthead turns solid as soon as the page moves */
-  const updateMasthead = () => masthead.classList.toggle('is-solid', window.scrollY > 40);
+  const updateMasthead = () => {
+    const scrolled = window.scrollY > 40;
+    masthead.classList.toggle('is-solid', scrolled);
+    masthead.classList.toggle('is-scrolled', scrolled);
+  };
   updateMasthead();
   window.addEventListener('scroll', updateMasthead, { passive: true });
 
